@@ -29,12 +29,13 @@ const Feed = () => {
     setPosts(data);
     console.log('data')
     console.log(data)
+    console.log('posts')
+    console.log(posts)
   };
 
   useEffect(() => {
     fetchData();
-    console.log('posts')
-    console.log(posts)
+
   }, [searchText]);
 
   const filterPrompts = (searchtext) => {
