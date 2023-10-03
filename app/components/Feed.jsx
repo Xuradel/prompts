@@ -33,8 +33,7 @@ const Feed = () => {
       setPosts(data);
       console.log('data')
       console.log(data)
-      console.log('posts')
-      console.log(posts)
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -42,7 +41,8 @@ const Feed = () => {
 
   useEffect(() => {
     fetchData();
-
+    console.log('posts')
+    console.log(posts)
   }, []);
 
   const filterPrompts = (searchtext) => {
