@@ -31,7 +31,7 @@ const Feed = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchText]);
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
