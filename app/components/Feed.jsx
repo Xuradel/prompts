@@ -25,7 +25,7 @@ const Feed = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("api/prompt");
+      const response = await fetch("api/prompt",{cache: 'no-store',});
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
