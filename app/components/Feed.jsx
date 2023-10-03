@@ -24,19 +24,26 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchData = async () => {
-    const response = await fetch("api/prompt");
-    const data = await response.json();
-    setPosts(data);
-    console.log('data')
-    console.log(data)
-    console.log('posts')
-    console.log(posts)
+    try {
+      const response = await fetch("api/prompt");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setPosts(data);
+      console.log('data')
+      console.log(data)
+      console.log('posts')
+      console.log(posts)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   useEffect(() => {
     fetchData();
 
-  }, [searchText]);
+  }, []);
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
